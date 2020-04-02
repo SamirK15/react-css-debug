@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Mini = (props) => {
+export default function Shrunk(props){
     return(
-        <div>
+        <div className="shrunk">
             <i onClick={props.handleClick} className="fas fa-plus"></i>
         </div>
     )
 }
-
-export default Mini;

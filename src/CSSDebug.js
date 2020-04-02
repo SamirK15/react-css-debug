@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import Draggable from 'react-draggable'
-
-import Large from './Large'
-import Mini from './Mini'
+import Expand from './Expand'
+import Shrunk from './Shrunk'
 import {getElements} from './utils'
 import {MINI, LARGE} from './Constants'
 import './App.css'
 
-class RCD extends Component{
+class CSSDebug extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -22,22 +21,19 @@ class RCD extends Component{
         })
     }
 
-
     render(){
         const {size} = this.state;
-        console.log(this.state.debug);
-    
-
         return(
-            <Draggable>
-            <div className='debugger'>
-                {size === MINI ? <Large changeSize={this.changeSize}/>
-                : <Mini handleClick={this.changeSize}/>
-                }
-            </div>
+            <Draggable enableUserSelectHack={false}> 
+                <div className='css-debugger'>
+                    {size === MINI 
+                    ? <Expand changeSize={this.changeSize}/>
+                    : <Shrunk handleClick={this.changeSize}/>
+                    }
+                </div>
             </Draggable>
         )
     }
 }
 
-export default RCD
+export default CSSDebug
